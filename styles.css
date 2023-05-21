@@ -1,0 +1,76 @@
+/* Reset default browser styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 31px;
+  justify-content: space-evenly;
+}
+
+nav ul li a:hover {
+  padding: 10px;
+  background-color: whitesmoke;
+  color: #555;
+  border-radius: 25px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#dashboard {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+#login,
+#signup {
+  text-align: center;
+}
