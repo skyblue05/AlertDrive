@@ -19,6 +19,7 @@ nav ul {
   display: flex;
   flex-direction: row;
   list-style-type: none;
+  /* width: 200px; */
 }
 
 nav ul li {
@@ -73,4 +74,55 @@ button:hover {
 #login,
 #signup {
   text-align: center;
+}
+
+.container {
+  
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas:
+    'box-1 box-1 box-1 image1'
+    'image2 box-2 box-2 box-2'
+    'footer footer footer footer'
+  ;
+  font-size: 21px;
+}
+
+.box-1 {
+  margin: 35px 5px 100px 5px;
+  grid-area: box-1;
+  /* border: 2px solid black; */
+  text-align: center;
+  padding-bottom: 51px;
+
+}
+
+.image1 {
+  grid-area: image1;
+  margin: 35px 5px 100px 5px;
+
+}
+
+.image2 {
+  grid-area: image2;
+
+}
+
+img {
+  width: 500px;
+  height: 200px;
+}
+.box-2 {
+  margin: 10px 5px 10px 5px;
+  grid-area: box-2;
+  /* border: 2px solid black; */
+  text-align: center;
+
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
