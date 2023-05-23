@@ -78,7 +78,6 @@ button:hover {
   grid-template-areas:
     'box-1 box-1 box-1 image1'
     'image2 box-2 box-2 box-2'
-    'footer footer footer footer'
   ;
   font-size: 21px;
 }

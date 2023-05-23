@@ -30,7 +30,10 @@
             margin-bottom: 51px;
             border-radius: 50px;
             padding: 10px;
+        }
 
+        button {
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -42,10 +45,11 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
-                <li id="login-li"><a href="login-signup.html">Login/Sign Up</a></li>
+                <li><a href="login-signup.html">Login/Sign Up</a></li>
             </ul>
         </nav>
     </header>
+
     <!-- Dashboard content goes here -->
 
     <main>
@@ -53,15 +57,15 @@
 
         <div id="admin-login">
             <h2>Admin Login</h2>
-            <form>
-                <!-- Admin login form fields -->
+            <form id="admin-login-form">
+                <!-- Admin login form fields
                 <label for="admin-username">Username:</label>
                 <input type="text" id="admin-username" name="admin-username" required>
 
                 <label for="admin-password">Password:</label>
                 <input type="password" id="admin-password" name="admin-password" required>
-
-                <button type="submit">Login</button>
+ -->
+                <button class="button" onclick="redirectToGoogleSignUp()">Sign Up</button>
             </form>
         </div>
 
@@ -69,87 +73,12 @@
 
     </main>
 
-
-
     <footer>
         <p>&copy; 2023 DriCare System. All rights reserved.</p>
     </footer>
-    <script>
-    // Admin login form submission handler
-            const adminLoginForm = document.querySelector('#admin-login form');
-            adminLoginForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent form submission
+    <script src="app.js"></script>
 
-            // Get the entered username and password
-            const adminUsername = document.querySelector('#admin-username').value;
-            const adminPassword = document.querySelector('#admin-password').value;
-
-            // Make an API request to validate admin credentials
-            // Replace 'api/admin-login' with the actual API endpoint for admin login
-            fetch('api/admin-login', {
-                method: 'POST',
-            body: JSON.stringify({username: adminUsername, password: adminPassword }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle API response
-            if (data.success) {
-                // Admin authentication successful
-                // Redirect to admin dashboard page
-                window.location.href = 'admin-dashboard.html';
-            } else {
-                // Admin authentication failed
-                // Display error message or perform other actions
-                alert('Invalid admin credentials');
-            }
-        })
-        .catch(error => {
-                // Handle error
-                console.error('Error:', error);
-        });
-    });
-
-            // Driver login form submission handler
-            const driverLoginForm = document.querySelector('#driver-login form');
-            driverLoginForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent form submission
-
-            // Get the entered username and password
-            const driverUsername = document.querySelector('#driver-username').value;
-            const driverPassword = document.querySelector('#driver-password').value;
-
-            // Make an API request to validate driver credentials
-            // Replace 'api/driver-login' with the actual API endpoint for driver login
-            fetch('api/driver-login', {
-                method: 'POST',
-            body: JSON.stringify({username: driverUsername, password: driverPassword }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle API response
-            if (data.success) {
-                // Driver authentication successful
-                // Redirect to driver dashboard page
-                window.location.href = 'driver-dashboard.html';
-            } else {
-                // Driver authentication failed
-                // Display error message or perform other actions
-                alert('Invalid driver credentials');
-            }
-        })
-        .catch(error => {
-                // Handle error
-                console.error('Error:', error);
-        });
-    });
-
-    </script>
 </body>
+
 
 </html>

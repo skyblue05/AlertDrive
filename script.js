@@ -51,3 +51,26 @@ const receivedData = JSON.parse('{{ jsonData }}');
 
 // Call the updateTable function with the received data
 updateTable(receivedData);
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBqz8ailLozfBZqCf-pCuEGqoYYEpuzF8o",
+  authDomain: "alert-drive-ef323.firebaseapp.com",
+  projectId: "alert-drive-ef323",
+  storageBucket: "alert-drive-ef323.appspot.com",
+  messagingSenderId: "586560542589",
+  appId: "1:586560542589:web:fb9b41b601823c48aade14",
+  measurementId: "G-PXBFNMJ6VN"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);

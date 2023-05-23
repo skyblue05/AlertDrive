@@ -1,19 +1,36 @@
-// Function to handle Google login
-function handleGoogleLogin() {
-    // Implement your Google login functionality here
-    // For example, you can use the Google Sign-In API to handle the login process
-  }
-  
-  // Function to fetch and display dashboard information
-  function fetchDashboardData() {
-    // Implement your code to fetch dashboard information from the backend
-    // Use AJAX or fetch API to make an API call to retrieve the data
-    // Update the HTML elements to display the retrieved data
-  }
-  
-  // Event listener for Google login button
-  document.getElementById('google-login').addEventListener('click', handleGoogleLogin);
-  
-  // Fetch and display dashboard data when the page loads
-  window.addEventListener('load', fetchDashboardData);
-  
+// Admin login form submission handler
+const adminLoginForm = document.querySelector('#admin-login-form');
+adminLoginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the entered username and password
+    const adminUsername = document.querySelector('#admin-username').value;
+    const adminPassword = document.querySelector('#admin-password').value;
+
+    // Make an API request to validate admin credentials
+    // Replace 'api/admin-login' with the actual API endpoint for admin login
+    fetch('api/admin-login', {
+        method: 'POST',
+        body: JSON.stringify({ username: adminUsername, password: adminPassword }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Handle API response
+            if (data.success) {
+                // Admin authentication successful
+                // Redirect to admin dashboard page
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                // Admin authentication failed
+                // Display error message or perform other actions
+                alert('Invalid admin credentials');
+            }
+        })
+        .catch(error => {
+            // Handle error
+            console.error('Error:', error);
+        });
+});
