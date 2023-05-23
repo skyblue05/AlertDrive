@@ -59,6 +59,20 @@
   </footer>
   <script src="app.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Place the JavaScript code here
+    fetch('https://raw.githubusercontent.com/skyblue05/AlertDrive/master/data.json')
+      .then(response => response.json())
+      .then(data => {
+        // Process the retrieved data
+        console.log(data);
+        // Update your website with the data
+        // ...
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  </script>
 </body>
 
 </html>

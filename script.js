@@ -74,3 +74,54 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+
+// Table update automatically
+
+// Fetch data from data.json file
+fetch('https://raw.githubusercontent.com/skyblue05/AlertDrive/master/data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Get the table body element
+    const tableBody = document.querySelector('#driver-table tbody');
+
+    // Loop through the data and create table rows
+    data.forEach((driver, index) => {
+      const row = document.createElement('tr');
+      
+      // Create table cells and set the data
+      const srNoCell = document.createElement('td');
+      srNoCell.textContent = index + 1;
+      row.appendChild(srNoCell);
+      
+      const nameCell = document.createElement('td');
+      nameCell.textContent = driver.name;
+      row.appendChild(nameCell);
+      
+      const vehicleNoCell = document.createElement('td');
+      vehicleNoCell.textContent = driver.vehicleNo;
+      row.appendChild(vehicleNoCell);
+      
+      const drowsinessCountCell = document.createElement('td');
+      drowsinessCountCell.textContent = driver.drowsinessCount;
+      row.appendChild(drowsinessCountCell);
+      
+      const yawnCountCell = document.createElement('td');
+      yawnCountCell.textContent = driver.yawnCount;
+      row.appendChild(yawnCountCell);
+      
+      const clickHereCell = document.createElement('td');
+      // Add a link or button element as per your requirement
+      const link = document.createElement('a');
+      link.textContent = 'Click here';
+      link.href = driver.link;
+      clickHereCell.appendChild(link);
+      row.appendChild(clickHereCell);
+      
+      // Append the row to the table body
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
