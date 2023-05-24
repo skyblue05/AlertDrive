@@ -13,25 +13,22 @@
 
   <script>
 
-    /*
+
     function checkFirstVisit() {
-        // Check if it's the first visit using local storage
-        var isFirstVisit = localStorage.getItem('isFirstVisit');
+      // Check if it's the first visit using local storage
+      var isFirstVisit = localStorage.getItem('isFirstVisit');
 
-        if (!isFirstVisit) {
-            // Redirect to the specified link
-            window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=791968703776-5lvt2ntnigef5jlvpnu5gb7kmp7dbcn9.apps.googleusercontent.com&redirect_uri=https://alertdrive.netlify.app/&response_type=code&scope=email%20profile';
+      if (!isFirstVisit) {
+        // Redirect to the specified link
 
-            // Set the flag to indicate that it's no longer the first visit
-            localStorage.setItem('isFirstVisit', 'false');
-        }
-    } */
+        var redirectUrl = 'https://accounts.google.com/o/oauth2/auth?client_id=791968703776-5lvt2ntnigef5jlvpnu5gb7kmp7dbcn9.apps.googleusercontent.com&redirect_uri=https://alertdrive.netlify.app/&response_type=code&scope=email%20profile';
 
-    // Set the URL to redirect to
-    var redirectUrl = 'https://accounts.google.com/o/oauth2/auth?client_id=791968703776-5lvt2ntnigef5jlvpnu5gb7kmp7dbcn9.apps.googleusercontent.com&redirect_uri=https://alertdrive.netlify.app/&response_type=code&scope=email%20profile';
-
-    // Redirect the visitor
-    window.location.href = redirectUrl;
+        // Redirect the visitor
+        window.location.href = redirectUrl;
+        // Set the flag to indicate that it's no longer the first visit
+        localStorage.setItem('isFirstVisit', 'false');
+      }
+    }
   </script>
 
   <header>
