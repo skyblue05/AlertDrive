@@ -142,7 +142,46 @@ footer {
 
 }
 
-@media only screen and (min-width: 300px) and (max-width: 500px) {
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+
+  header {
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  header nav ul {
+    display: none; /* Hide the list by default */
+    flex-direction: column;
+  }
+  
+  header nav ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .menu-icon {
+    display: block; /* Show the menu icon */
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .menu-icon:before {
+    content: '\2630'; /* Unicode for the hamburger icon */
+    font-size: 1.5rem;
+  }
+  
+  /* Toggle the visibility of the list when the menu icon is clicked */
+  .menu-icon.clicked:before {
+    content: '\2716'; /* Unicode for the close icon */
+  }
+  
+  .menu-icon.clicked + nav ul li {
+    display: block; /* Show the list when the menu icon is clicked */
+  }
+
 
 
   .container {

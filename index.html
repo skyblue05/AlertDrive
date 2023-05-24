@@ -10,14 +10,31 @@
 </head>
 
 <body>
+
+  <script>
+    function checkFirstVisit() {
+        // Check if it's the first visit using local storage
+        var isFirstVisit = localStorage.getItem('isFirstVisit');
+
+        if (!isFirstVisit) {
+            // Redirect to the specified link
+            window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=791968703776-5lvt2ntnigef5jlvpnu5gb7kmp7dbcn9.apps.googleusercontent.com&redirect_uri=https://alertdrive.netlify.app/&response_type=code&scope=email%20profile';
+
+            // Set the flag to indicate that it's no longer the first visit
+            localStorage.setItem('isFirstVisit', 'false');
+        }
+    }
+</script>
+
   <header>
+    <h1>DriCare System</h1>
     <nav>
-      <h1>DriCare System</h1>
+      <div class="menu-icon" onclick="toggleMenu()"></div>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="login-signup.html">Login/Sign Up</a></li>
-        <li><a href="privacypolicy.html">privacy policy</a></li>
+        <li><a href="privacypolicy.html">Privacy policy</a></li>
         <li><a href="termsandconditions.html">Terms & Conditions</a></li>
       </ul>
     </nav>

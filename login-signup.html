@@ -35,6 +35,11 @@
         button {
             border-radius: 20px;
         }
+
+        #signup {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 
@@ -46,6 +51,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="dashboard.html">Dashboard</a></li>
                 <li><a href="login-signup.html">Login/Sign Up</a></li>
+                <li><a href="privacypolicy.html">Privacy policy</a></li>
+                <li><a href="termsandconditions.html">Terms & Conditions</a></li>
             </ul>
         </nav>
     </header>
@@ -65,7 +72,11 @@
                 <label for="admin-password">Password:</label>
                 <input type="password" id="admin-password" name="admin-password" required>
  -->
-                <button class="button" onclick="redirectToGoogleSignUp()">Sign Up</button>
+                <button> <a
+                        href="https://accounts.google.com/o/oauth2/auth?client_id=791968703776-5lvt2ntnigef5jlvpnu5gb7kmp7dbcn9.apps.googleusercontent.com&redirect_uri=https://alertdrive.netlify.app/&response_type=code&scope=email%20profile"
+                        id="signup">
+                        Sign Up with Google</button>
+                </a>
             </form>
         </div>
 

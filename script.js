@@ -125,3 +125,12 @@ fetch('https://raw.githubusercontent.com/skyblue05/AlertDrive/master/data.json')
   .catch(error => {
     console.error('Error:', error);
   });
+
+
+  function toggleMenu() {
+    var menuIcon = document.querySelector('.menu-icon');
+    var navList = document.querySelector('nav ul li');
+
+    menuIcon.classList.toggle('clicked'); // Toggle the "clicked" class
+    navList.classList.toggle('show'); // Toggle the "show" class
+  }
