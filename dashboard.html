@@ -25,39 +25,7 @@
     <!-- Dashboard content goes here -->
 
     <main>
-        <h2>Driver Information</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Sr. No</th>
-                    <th>Driver Name</th>
-                    <th>Vehicle No.</th>
-                    <th>Drowsiness Count.</th>
-                    <th>Yawn Count</th>
-                    <th>Click here</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 10 blank rows -->
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </tbody>
-        </table>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=E5F48044DDCB0A76%211564&authkey=%21AGAZ1Iix8YG2Q9s&em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edesNext=false&resen=false&ed1JS=false"></iframe>
     </main>
 
 
@@ -66,6 +34,98 @@
         <p>&copy; 2023 DriCare System. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        // script.js
+
+        // Fetch data from your model or API endpoint
+        fetch('/api/drivers')
+            .then(response => response.json())
+            .then(data => {
+                // Get a reference to the table body
+                const tbody = document.querySelector('#driver-table tbody');
+
+                // Clear any existing rows
+                tbody.innerHTML = '';
+
+                // Loop through the data and create table rows
+                data.forEach((driver, index) => {
+                    const row = document.createElement('tr');
+
+                    // Create table cells and populate with data
+                    const srNoCell = document.createElement('td');
+                    srNoCell.textContent = index + 1;
+                    row.appendChild(srNoCell);
+
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = driver.name;
+                    row.appendChild(nameCell);
+
+                    const vehicleNoCell = document.createElement('td');
+                    vehicleNoCell.textContent = driver.vehicleNo;
+                    row.appendChild(vehicleNoCell);
+
+                    const drowsinessCountCell = document.createElement('td');
+                    drowsinessCountCell.textContent = driver.drowsinessCount;
+                    row.appendChild(drowsinessCountCell);
+
+                    const clickHereCell = document.createElement('td');
+                    const clickHereLink = document.createElement('a');
+                    clickHereLink.textContent = 'Click Here';
+                    clickHereLink.href = driver.detailsUrl; // Replace with the actual URL
+                    clickHereCell.appendChild(clickHereLink);
+                    row.appendChild(clickHereCell);
+
+                    // Append the row to the table body
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+    </script>
+    <script>
+    // Fetch the Excel file
+    fetch('data.xlsx')
+      .then(function(response) {
+        return response.arrayBuffer();
+      })
+      .then(function(arrayBuffer) {
+        // Convert the Excel data to a workbook object
+        var workbook = XLSX.read(arrayBuffer, { type: 'array' });
+    
+        // Get the first worksheet
+        var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    
+        // Convert the worksheet to JSON
+        var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+    
+        // Get a reference to the table body
+        var tbody = document.querySelector('tbody');
+    
+        // Clear any existing rows
+        tbody.innerHTML = '';
+    
+        // Loop through the JSON data and create table rows
+        for (var i = 1; i < jsonData.length; i++) {
+          var row = document.createElement('tr');
+    
+          for (var j = 0; j < jsonData[i].length; j++) {
+            var cell = document.createElement('td');
+            cell.textContent = jsonData[i][j];
+            row.appendChild(cell);
+          }
+    
+          tbody.appendChild(row);
+        }
+      })
+      .catch(function(error) {
+        console.log('Error fetching Excel data:', error);
+      });
+    </script>
+
+      <script src="D:\Real_Time_Driver_Drowiness_Detection\Model\xlsx.js"></script>
+    
 </body>
 
 </html>

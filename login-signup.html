@@ -88,6 +88,26 @@
         <p>&copy; 2023 DriCare System. All rights reserved.</p>
     </footer>
     <script src="app.js"></script>
+    <script>
+        // Assuming you have obtained the user's email from the Google API response
+
+        // List of allowed email addresses
+        var allowedEmails = ["akashborude83@gmail.com", "example2@example.com", "example3@example.com"];
+
+        // Retrieve user's email from the Google API response
+        var userEmail = googleApi.getUserEmail();
+
+        // Compare user's email with the allowed list
+        if (allowedEmails.includes(userEmail)) {
+            // Grant access to the user
+            // Proceed with the login process
+            // Redirect to the main page or perform necessary actions
+        } else {
+            // Display error message or redirect to an error page
+            alert("You are not authorized to log in.");
+        }
+
+    </script>
 
 </body>
 
