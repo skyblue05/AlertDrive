@@ -7,6 +7,40 @@
     <title>DriCare Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Icon.png">
+    <script>
+      function checkPassword() {
+          var password = document.getElementById("password").value;
+          
+          if (password === "Password") {
+              window.location.href = "dashboard.html"; // Redirect to your dashboard page
+          } else {
+              alert("Incorrect password. Please try again.");
+          }
+      }
+  </script>
+
+    <style>
+      .login-container {
+          width: 300px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+
+      .login-container h2 {
+          text-align: center;
+      }
+
+      .login-container input[type="password"],
+      .login-container input[type="submit"] {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          box-sizing: border-box;
+      }
+  </style>
+
 </head>
 
 <body>
@@ -25,7 +59,7 @@
     <!-- Dashboard content goes here -->
 
     <main>
-        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=E5F48044DDCB0A76%211564&authkey=%21AGAZ1Iix8YG2Q9s&em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edesNext=false&resen=false&ed1JS=false"></iframe>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=E5F48044DDCB0A76%211576&authkey=%21AJDAwF1ti0v8uMQ&em=2&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edesNext=false&resen=false&ed1JS=false"></iframe>
     </main>
 
 
@@ -124,8 +158,33 @@
       });
     </script>
 
-      <script src="D:\Real_Time_Driver_Drowiness_Detection\Model\xlsx.js"></script>
-    
+<script>
+  function login() {
+      var password = document.getElementById("password").value;
+
+      // Compare the entered password with the correct password
+      if (password === "Password") {
+          // Password is correct, allow access to the dashboard
+          showDashboard();
+          return false; // Prevent form submission
+      } else {
+          // Password is incorrect, display an error message
+          alert("Incorrect password. Access denied.");
+          return false; // Prevent form submission
+      }
+  }
+
+  function showDashboard() {
+      // Replace the login container with the dashboard content
+      var loginContainer = document.querySelector(".login-container");
+      loginContainer.innerHTML = "<h2>Dashboard</h2><p>Welcome to the dashboard!</p>";
+      // Add your dashboard HTML code here
+  }
+</script>
+
+
+
+
 </body>
 
 </html>
