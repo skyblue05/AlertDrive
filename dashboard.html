@@ -7,17 +7,24 @@
     <title>DriCare Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Icon.png">
+
     <script>
-      function checkPassword() {
-          var password = document.getElementById("password").value;
-          
-          if (password === "Password") {
-              window.location.href = "dashboard.html"; // Redirect to your dashboard page
+        function checkPassword(event) {
+          event.preventDefault(); // Prevent form submission
+    
+          var enteredPassword = document.getElementById('password').value;
+          var correctPassword = 'YourPassword'; // Replace 'YourPassword' with the actual password
+    
+          if (enteredPassword === correctPassword) {
+            // Password is correct, show the protected content
+            document.getElementById('message').innerHTML = 'Correct password! You can now access the protected content.';
+            // Add code here to display the protected content or redirect to another page
           } else {
-              alert("Incorrect password. Please try again.");
+            // Password is incorrect, display an error message
+            document.getElementById('message').innerHTML = 'Incorrect password. Please try again.';
           }
-      }
-  </script>
+        }
+      </script>
 
     <style>
       .login-container {
